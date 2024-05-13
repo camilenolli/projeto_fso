@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head th:include="layout :: htmlhead"></head>
+    <body>
+        
+        
+        
+        <main class= "container">
+            <nav th:replace="layout :: menu">(menu)</nav>
+            <h1>Produto</h1>
+            <form th:action="@{/produtos}" 
+                method="POST" 
+                th:object="${produto}">
+
+                    <input type="hidden" th:field="*{id}">
+
+
+                <div class="form-group">
+                    <label for="txtnome">Nome</label>
+                    <input type="text" id ="txtnome"
+                        th:field="*{nome}" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="txtcategoria">Categoria</label>
+                    <input type="text" id="txtcategoria"
+                        th:field="*{categoria}" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="txtpreco">Preço</label>
+                    <input type="text" id="txtpreco"
+                        th:field="*{preco}" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-primary"
+                        type="submit">Enviar</button>
+                </div>
+
+            </form>
+        </main>
+
+
+        <div th:include="layout :: footer">(footer)</div>
+    </body>
+</html>
