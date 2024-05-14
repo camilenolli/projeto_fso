@@ -3,27 +3,27 @@
     <head th:include="layout :: htmlhead"></head>
     <body>
         <nav th:replace="layout :: menu">(menu)</nav>
-        <h1>Produtos</h1>
+        <h1>Vendas</h1>
 
-        <a href= "/produtos/novo" class="btn btn-primary">Novo</a>
+        <a href= "/vendas/novo" class="btn btn-primary">Novo</a>
 
-        <table class="table" id="tabprodutos">
+        <table class="table" id="tabvendas">
             <thead>
-                <th>Nome</th>
-                <th>Categoria</th>
+                <th>Produto</th>
                 <th>Preço</th>
+                <th>Data</th>
                 <th></th>
             </thead>
             <tbody>
-                <tr th:each="umProduto : ${listaProdutos}">
-                    <td th:text="${umProduto.nome}"></td>
-                    <td th:text="${umProduto.categoria}"></td>
-                    <td th:text="${umProduto.preco}"></td>
-                    <td><a th:href="@{'produtos/alterar/' + ${umProduto.id}}"
+                <tr th:each="umVenda : ${listaVendas}">
+                    <td th:text="${umVenda.nome}"></td>
+                    <td th:text="${umVenda.preco}"></td>
+                    <td th:text="${umVenda.data}"></td>
+                    <td><a th:href="@{'vendas/alterar/' + ${umVenda.id}}"
                         class="btn btn-warning">Alterar</a>
 
                         <button class="btn btn-danger js-delete"
-                        th:data-id="${umProduto.id}">Excluir</button>
+                        th:data-id="${umVenda.id}">Excluir</button>
                     
                     
                     
@@ -33,15 +33,15 @@
         </table>
 
 
-        <div class="modal" tabindex="-1" id="modalproduto">
+        <div class="modal" tabindex="-1" id="modalvenda">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">Excluir Produto</h5>
+                  <h5 class="modal-title">Excluir Venda</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <p>Confirma a exclusão do produto?</p>
+                  <p>Confirma a exclusão do venda?</p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
@@ -53,6 +53,6 @@
 
 
         <div th:include="layout :: footer">(footer)</div>
-        <script th:src="@{/script2.js}"></script> 
+        <script th:src="@{/script3.js}"></script> 
     </body>
 </html>
